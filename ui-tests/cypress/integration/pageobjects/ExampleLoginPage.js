@@ -3,7 +3,6 @@
 class ExampleLoginPage {
 
     open_demo_url() {
-        // cy.visit('http://dev:Devserver@2020@d-v.in');
         cy.visit('https://admin-demo.nopcommerce.com/login');
         console.log(' Url :: ' + cy.url);
         cy.url().should('include', 'admin-demo');
@@ -44,13 +43,5 @@ class ExampleLoginPage {
     get_validation_msg_new() {
         return cy.get('div.message-error.validation-summary-errors');
     }
-    // https://github.com/toolsqa/CypressWorkshop-PageObject/blob/master/cypress/integration/examples/ShopQASuite-1.js
-    // getOrderPlacedText() {
-    //     return cy.get('.weoeiro');
-    // }
-    //  billingPage.getOrderPlacedText().then(function(element){
-    //     expect(element.text().includes("Thank you")).to.be.true;
-    // })
 }
-// export default DaazLoginPage; -> in the test page -> const lp = new DaazLoginPage();
-module.exports = new DaazLoginPage();
+module.exports = new ExampleLoginPage();
