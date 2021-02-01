@@ -1,33 +1,45 @@
-/// <reference types="Cypress" />
+/// <reference types="Cypress"/>
 
-class LoginPage {
+var BasePage = require('../pageobjects/BasePage');
 
-    // Trying this instead:
-    // function name(params) {
-        
-    // }
-    // You shouldn't use the FUNCTION keyword in a Typescript class definition.
+class LoginPage extends BasePage {
 
-    openBrowser() {
+    username_textfield = 'input[name=Email]';
+    password_textfield = 'input[name=Password]';
+    login_submit_button = 'input[type=submit]';
+    email_validation_msg = '#Email-error';
+    login_validation_msg = 'div.message-error.validation-summary-errors';
+    logout_link = 'a[href="/logout"]';
+
+    open_browser() {
         cy.visit('https://admin-demo.nopcommerce.com/login');
     }
 
-    enterUsername(value) {
-        const username = cy.get('input[name=Email]');
-        username.clear();
-        username.type(value);
-        return this
+    enter_login_details(uname, password) {
+        this.enterValueInTextField(this.username_textfield, uname);
+        this.enterValueInTextField(this.password_textfield, password);
     }
 
-    enterPassword(value) {
-        cy.get('input[name=Password]').clear().type(value);
+    click_login_submit_button() {
+        this.clickOnElement(this.login_submit_button);
     }
 
-    clickSubmit() {
-        const button = cy.get('input[type=submit]');
-        button.click();
+    login_to_application() {
+        this.enter_login_details('admin@yourstore.com','admin')
+        this.click_login_submit_button();
+        cy.title().should('be.equal', 'Dashboard / nopCommerce administration');
     }
 
+    verify_email_validation_msg() {
+        return cy.get(this.email_validation_msg);
+    }
+
+    verify_login_validation_msg() {
+        return cy.get(this.login_validation_msg);
+    }
+
+    click_logout_link() {
+        cy.get(this.logout_link).contains('Logout').click();
+    }
  }
-// export default LoginPage;
 module.exports = new LoginPage();

@@ -1,0 +1,16 @@
+{
+  "loginData": [
+    {
+      "email": "Hi",
+      "password": " "
+    },
+    {
+      "email": " ",
+      "password": "^&*"
+    },
+    {
+      "email": "admin@yourstore.com",
+      "password": "pwd"
+    }
+  ]
+}
