@@ -19,15 +19,20 @@
 First, launch the Test Runner with the command: 
 `node_modules/.bin/cypress open`
 
-It opens Test runner then shows your tests (examples -> FirstTest.js) then click on the test you want to run.
+It opens Test runner window then shows your tests (examples -> LoginTest.spec.js) then click on the test you want to run.
 
 #### NOTE: To run tests, by default Cypress looks for TEST(s) files under 'Integration -> examples' directory
 
-###  To run headless tests on default 'Chrome' (Electron) Browser:
+### To run all the Tests using Cypress CLI:
+`node_modules/.bin/cypress run`
+
+### To run a Specific Test:
+`node_modules/.bin/cypress run —-spec “cypress/integration/examples/LoginTest.spec.js`
+
+### To run headless tests on default 'Chrome' (Electron) Browser:
 `node_modules/.bin/cypress run -—headed`
 
-### To run a Single Test:
-`node_modules/.bin/cypress run —-spec “cypress/integration/examples/FirstTest.js` 
-
-### To run all tests on chrome browser 
+### To run Browser specific tests:
 `node_modules/.bin/cypress run —-browser chrome`
+#### NOTE: To make it work updated 'scripts' in package.json 
+Ex:` "cy:run:chrome": "cypress run --browser chrome" `
