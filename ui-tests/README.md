@@ -36,3 +36,9 @@ It opens Test runner window then shows your tests (examples -> LoginTest.spec.js
 `node_modules/.bin/cypress run —-browser chrome`
 #### NOTE: To make it work updated 'scripts' in package.json 
 Ex:` "cy:run:chrome": "cypress run --browser chrome" `
+
+Adding the following in the "scripts" under package.json
+"scripts": {
+    "cypress:open": "./node_modules/.bin/cypress open"
+}
+Next, in terminal, run `npm run cypress:open` (or) `npm cypress:open`

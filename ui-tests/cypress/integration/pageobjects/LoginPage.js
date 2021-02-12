@@ -1,6 +1,6 @@
 /// <reference types="Cypress"/>
 
-var BasePage = require('../pageobjects/BasePage');
+var BasePage = require('./BasePage');
 
 class LoginPage extends BasePage {
 
@@ -13,6 +13,7 @@ class LoginPage extends BasePage {
 
     open_browser() {
         cy.visit('https://admin-demo.nopcommerce.com/login');
+        cy.wait(1000); // Waits for 1 seconds
     }
 
     enter_login_details(uname, password) {

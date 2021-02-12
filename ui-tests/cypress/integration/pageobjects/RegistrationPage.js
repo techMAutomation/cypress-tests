@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-const BasePage = require('../pageobjects/BasePage');
+const BasePage = require('./BasePage');
 
 class RegistrationPage extends BasePage {
 

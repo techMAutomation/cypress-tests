@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-var BasePage = require('../pageobjects/BasePage');
+var BasePage = require('./BasePage');
 
 const category_name = `Name${Math.floor(Math.random() * 99)}`;
 const category_id = 'Computers';
